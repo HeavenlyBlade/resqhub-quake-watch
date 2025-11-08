@@ -72,7 +72,7 @@ const Auth = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="YourEmail@email.com"
+                placeholder="YourEmailAdd@email.com"
               />
             </div>
             <div className="space-y-2">
@@ -98,7 +98,7 @@ const Auth = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="YourEmail@email.com"
+                placeholder="YourEmailAdd@email.com"
               />
             </div>
             <div className="space-y-2">
