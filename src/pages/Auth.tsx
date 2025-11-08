@@ -98,7 +98,7 @@ const Auth = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="YourEmailAdddress@email.com"
+                placeholder="BinagokotoDan@email.com"
               />
             </div>
             <div className="space-y-2">
