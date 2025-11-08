@@ -11,6 +11,7 @@ import Chatbot from "./pages/Chatbot";
 import Safety from "./pages/Safety";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Logout from "./pages/Logout"; 
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/chatbot" element={<ProtectedRoute><Chatbot /></ProtectedRoute>} />
           <Route path="/safety" element={<ProtectedRoute><Safety /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+          <Route path="/logout" element={<ProtectedRoute><Logout /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
