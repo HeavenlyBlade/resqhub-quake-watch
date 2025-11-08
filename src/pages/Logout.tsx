@@ -6,10 +6,36 @@ import { AlertTriangle, MapPin, Clock, TrendingUp, MessageSquare } from "lucide-
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-const Logout = () => {
+// Logout if user want to cancel or proceed with logout
+const LogoutPrompt = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <Card className="w-full max-w-md p-8 bg-card border-border text-center">
+        <AlertTriangle className="h-10 w-10 text-primary animate-pulse-slow mx-auto mb-4" />
+        <h1 className="text-2xl font-bold text-gradient mb-2">Confirm Logout</h1>
+        <p className="text-sm text-muted-foreground mb-6">
+          Are you sure you want to log out of your account?
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button variant="outline" onClick={() => navigate(-1)}>
+            Cancel
+          </Button>
+          <Button onClick={() => navigate("/auth")}>
+            Logout
+          </Button>
+        </div>
+      </Card>
+    </div>
+  );
 
+};
+
+/*
+// Logout confirmation component to sign out the user and redirect to the login page
+const Logout = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const logoutUser = async () => {
       setLoading(true);
@@ -25,23 +51,23 @@ const Logout = () => {
       finally {
         setLoading(false);
       }
-
     };
     logoutUser();
-  }, [navigate]);
+  }, [navigate]); 
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md p-8 bg-card border-border flex flex-col items-center">
-        <AlertTriangle className="h-10 w-10 text-primary animate-pulse-slow mb-4" />
+      <Card className="w-full max-w-md p-8 bg-card border-border text-center">
+        <AlertTriangle className="h-10 w-10 text-primary animate-pulse-slow mx-auto mb-4" />
         <h1 className="text-2xl font-bold text-gradient mb-2">Logging Out</h1>
-        <p className="text-sm text-muted-foreground mb-6">You are being logged out of your account.</p>
-        <Button disabled={loading} onClick={() => navigate("/auth")}>
-          {loading ? "Logging Out..." : "Go to Login"}
-        </Button>
+        <p className="text-sm text-muted-foreground">
+          {loading ? "Please wait while we log you out..." : "You have been logged out."}
+        </p>
       </Card>
     </div>
   );
 };
 
-export default Logout;
+*/
+
+export default LogoutPrompt;
